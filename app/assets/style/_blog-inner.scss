@@ -1,0 +1,10 @@
+.blog-inner-nav-link{
+  a{
+    display: block;
+    color: $dark;
+    @include link-hover{
+      color: $primary-color;
+    }
+  }
+}
+

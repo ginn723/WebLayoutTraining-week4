@@ -1,0 +1,199 @@
+.container {
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 0 12px;
+
+  @include respond(tablet) {
+    max-width: 992px;
+  }
+
+  @include respond(mobile) {
+    max-width: 576px;
+  }
+}
+
+.recommend,
+.design-frame,
+.classic,
+.professional,
+.contact {
+  padding-top: 80px;
+  padding-bottom: 80px;
+
+  @include respond(mobile) {
+    padding: 40px 36px;
+  }
+
+  @include respond(mobile){
+    padding: 40px 12px;
+  }
+}
+
+
+// header
+.header{
+  .nav{
+    background-color: $primary-color;
+    height: 80px;
+
+    @include respond(mobile) {
+      display: none;      
+    }
+
+    .nav-link{
+      @include link-hover{
+        color: darken($light, 15%);
+      }
+    }
+  }
+
+  @include respond(mobile){
+    .navbar-sm{
+      display: block;
+      height: 80px;
+      background-color: $primary-color;
+      .nav-container {
+        display: block;
+        position: relative;
+        height: 60px;
+        top: 12px;
+        .hamburger-lines{
+          display: block;
+          height: 26px;
+          width: 32px;
+          position: absolute;
+          top: 15px;
+          left: 20px;
+          z-index: 2;
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+          .line{
+            display: block;
+            height: 4px;
+            width: 100%;
+            border-radius: 10px;
+            background: #fff;
+          }
+          .line1 {
+            transform-origin: 0% 0%;
+            transition: transform 0.4s ease-in-out;
+          }
+          .line2 {
+            transition: transform 0.2s ease-in-out;
+          }
+          .line3 {
+            transform-origin: 0% 100%;
+            transition: transform 0.4s ease-in-out;
+          }
+        }
+        
+        .checkbox{
+          position: absolute;
+          display: block;
+          height: 32px;
+          width: 32px;
+          top: 20px;
+          left: 20px;
+          z-index: 5;
+          opacity: 0;
+          cursor: pointer;
+        }
+
+        input[type="checkbox"]:checked~.menu-items {
+          transform: translateX(0);
+        }
+
+        input[type="checkbox"]:checked~.hamburger-lines .line1 {
+          transform: rotate(45deg);
+        }
+
+        input[type="checkbox"]:checked~.hamburger-lines .line2 {
+          transform: scaleY(0);
+        }
+
+        input[type="checkbox"]:checked~.hamburger-lines .line3 {
+          transform: rotate(-45deg);
+        }
+
+        input[type="checkbox"]:checked~.logo {
+          display: none;
+        }
+      }
+    }
+    .menu-items {
+        display: flex;
+        // padding-top: 16px;
+        // padding-bottom: 16px;
+        box-shadow: inset 0 20px 2000px $primary-color;
+        width: 100%;
+        transform: translate(-150%);
+        display: flex;
+        flex-direction: column;
+        margin-left: -40px;
+        margin-top: 13px;
+        transition: transform 0.5s ease-in-out;
+        text-align: center;
+        li{           
+          .nav-link {
+            display: block;
+            color: #fff;
+            font-size: 24px;
+            padding: 3rem;
+            &:hover, &:focus{
+              background-color: rgba(0,0,0,0.5);
+              color: $light;
+            }
+          }      
+        }
+    }
+
+    .logo-sm{
+      display: flex;
+      justify-content: flex-end;
+    }      
+   }
+  }
+
+
+// footer
+.footer {
+  background-color: $primary-color;
+  @include respond(mobile){
+    position: relative;
+  .footer-contact {
+      position: absolute;
+      top: 24px;
+    }
+  }
+  .footer-navlink {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .footer-icon {
+      width: 48px;
+      height: 48px;
+      @include respond(mobile){
+        width: 24px;
+        height: 24px;
+      }
+    }
+    @include respond(mobile){
+      flex-direction: row-reverse;
+    }
+  }
+  
+  .phone-icon,
+  .mail-icon {
+    width: 36px;
+    height: 36px;
+    @include respond(mobile){
+      width: 18px;
+      height: 18px;
+    }
+  }
+}
+
+
+
